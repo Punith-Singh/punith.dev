@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    <!-- Devicon for Tech Stack Logos -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
     <!-- Firebase SDKs -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -278,7 +281,7 @@
             transition: transform 0.1s;
         }
         .project-card-3d .glass-card {
-             transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
         }
         .project-card-3d:hover .glass-card {
             z-index: 20; 
@@ -364,9 +367,10 @@
             transform: translateY(0);
         }
         
-        /* UPDATED: Styles for new skill layout */
+        /* UPDATED: Styles for new skill layout with icons */
         .skill-pill {
-            padding: 0.75rem 2rem;
+            @apply flex items-center justify-center gap-2;
+            padding: 0.65rem 1.5rem;
             border-radius: 9999px; /* full rounded pill */
             border: 1px solid rgba(255, 255, 255, 0.15);
             background: rgba(255, 255, 255, 0.05);
@@ -376,6 +380,7 @@
             transition: all 0.3s ease;
             cursor: default;
             backdrop-filter: blur(8px);
+            white-space: nowrap;
         }
         .skill-pill:hover {
             background: rgba(255, 255, 255, 0.15);
@@ -385,9 +390,10 @@
             color: #fff;
         }
 
-        /* REVERTED: skill-tag to match screenshot */
+        /* UPDATED: skill-tag to include icons neatly */
         .skill-tag {
-            @apply inline-block px-5 py-2 rounded-full border border-sky-600 bg-sky-900/40 text-sky-200 text-lg font-medium transition-all duration-300;
+            @apply inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-sky-600 bg-sky-900/40 text-sky-200 text-sm font-medium transition-all duration-300;
+            white-space: nowrap;
         }
     
         .skill-tag:hover {
@@ -449,8 +455,26 @@
     </div>
     <canvas id="starfield"></canvas>
 
+    <!-- Sidebars for Large Screens (Social & Email) -->
+    <div class="hidden xl:flex fixed bottom-0 left-10 flex-col items-center gap-6 z-50">
+        <a href="https://github.com/Punith-Singh" target="_blank" class="text-slate-500 hover:text-sky-400 hover:-translate-y-1 transition-all">
+            <i data-lucide="github" class="w-5 h-5"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/punith-h-singh" target="_blank" class="text-slate-500 hover:text-sky-400 hover:-translate-y-1 transition-all">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+        </a>
+        <div class="w-px h-24 bg-slate-700 mt-2"></div>
+    </div>
+
+    <div class="hidden xl:flex fixed bottom-0 right-10 flex-col items-center gap-6 z-50">
+        <a href="mailto:punithsingh18@gmail.com" class="text-slate-500 hover:text-sky-400 hover:-translate-y-1 transition-all tracking-widest text-sm font-mono" style="writing-mode: vertical-rl;">
+            punithsingh18@gmail.com
+        </a>
+        <div class="w-px h-24 bg-slate-700 mt-2"></div>
+    </div>
+
     <header class="bg-black/30 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-700 shadow-sm">
-      <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <nav class="container mx-auto px-6 py-3 flex justify-between items-center max-w-[1400px]">
         <a href="#" class="text-2xl font-bold text-slate-100 tracking-wider hover:text-white transition-colors">Punith H Singh</a>
     
         <div class="hidden md:flex space-x-8 items-center text-base">
@@ -475,7 +499,7 @@
       </div>
     </header>
 
-    <main class="container mx-auto px-6 py-12 relative z-10">
+    <main class="container mx-auto px-6 py-12 relative z-10 max-w-[1400px]">
 
         <section id="home" class="text-center min-h-[80vh] flex flex-col justify-center items-center py-12 scroll-animation">
             <h1 class="text-6xl md:text-8xl font-black leading-tight mb-4 text-slate-50 drop-shadow-lg text-gradient-animated">
@@ -495,7 +519,7 @@
                 </a>
             </div>
         
-            <div class="flex justify-center space-x-6 mt-12 text-slate-400">
+            <div class="flex xl:hidden justify-center space-x-6 mt-12 text-slate-400">
                 <a href="mailto:punithsingh18@gmail.com" class="hover:text-sky-400 transition-colors" aria-label="Email">
                     <i data-lucide="mail" class="w-7 h-7"></i>
                 </a>
@@ -557,7 +581,7 @@
                 <i data-lucide="user" class="w-10 h-10 text-purple-400"></i>About Me
             </h2>
             
-            <div class="max-w-3xl mx-auto text-gray-300 text-lg leading-relaxed space-y-4 text-justify">
+            <div class="max-w-4xl mx-auto text-gray-300 text-lg md:text-xl leading-relaxed space-y-4 text-justify">
                 <p>
                     I’m a Computer Science Engineer passionate about building scalable, real-world solutions through technology. 
                     My expertise spans <span class="text-white font-medium">web development, Cloud Computing, and mobile applications</span>, 
@@ -570,7 +594,7 @@
             </div>
         </section>
 
-        <!-- UPDATED: SKILLS SECTION with Centered Pill Layout -->
+        <!-- UPDATED: SKILLS SECTION with Devicon Logos -->
         <section id="skills" class="py-24 relative scroll-animation">
             <div class="text-center mb-16">
                 <h2 class="inline-flex items-center gap-3 text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg">
@@ -579,39 +603,39 @@
                 </h2>
             </div>
 
-            <div class="max-w-4xl mx-auto space-y-16">
+            <div class="max-w-5xl mx-auto space-y-16">
                 
                 <!-- Programming Languages -->
                 <div class="text-center">
                     <h3 class="text-2xl font-semibold text-slate-200 mb-8">Programming Languages</h3>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <span class="skill-pill">Python</span>
-                        <span class="skill-pill">JavaScript</span>
-                        <span class="skill-pill">Java</span>
-                        <span class="skill-pill">SQL</span>
+                    <div class="flex flex-wrap justify-center items-center gap-4">
+                        <span class="skill-pill"><i class="devicon-python-plain colored text-2xl"></i> Python</span>
+                        <span class="skill-pill"><i class="devicon-javascript-plain colored text-2xl"></i> JavaScript</span>
+                        <span class="skill-pill"><i class="devicon-java-plain colored text-2xl"></i> Java</span>
+                        <span class="skill-pill"><i class="devicon-mysql-plain colored text-2xl"></i> SQL</span>
                     </div>
                 </div>
 
                 <!-- Mobile, Web & Database -->
                 <div class="text-center">
                     <h3 class="text-2xl font-semibold text-slate-200 mb-8">Mobile, Web & Database</h3>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <span class="skill-pill">React.js</span>
-                        <span class="skill-pill">Flutter</span>
-                        <span class="skill-pill">Node.js</span>
-                        <span class="skill-pill">MongoDB</span>
+                    <div class="flex flex-wrap justify-center items-center gap-4">
+                        <span class="skill-pill"><i class="devicon-react-original colored text-2xl"></i> React.js</span>
+                        <span class="skill-pill"><i class="devicon-flutter-plain colored text-2xl"></i> Flutter</span>
+                        <span class="skill-pill"><i class="devicon-nodejs-plain colored text-2xl"></i> Node.js</span>
+                        <span class="skill-pill"><i class="devicon-mongodb-plain colored text-2xl"></i> MongoDB</span>
                     </div>
                 </div>
 
                 <!-- DevOps & Cloud Tools -->
                 <div class="text-center">
                     <h3 class="text-2xl font-semibold text-slate-200 mb-8">DevOps & Cloud Tools</h3>
-                    <div class="flex flex-wrap justify-center gap-4">
-                        <span class="skill-pill">Kubernetes</span>
-                        <span class="skill-pill">Jenkins</span>
-                        <span class="skill-pill">IBM Cloud</span>
-                        <span class="skill-pill">Git / GitHub</span>
-                        <span class="skill-pill">Postman</span>
+                    <div class="flex flex-wrap justify-center items-center gap-4">
+                        <span class="skill-pill"><i class="devicon-kubernetes-plain colored text-2xl"></i> Kubernetes</span>
+                        <span class="skill-pill"><i class="devicon-jenkins-line colored text-2xl"></i> Jenkins</span>
+                        <span class="skill-pill"><i data-lucide="cloud" class="w-6 h-6 text-blue-400"></i> IBM Cloud</span>
+                        <span class="skill-pill"><i class="devicon-git-plain colored text-2xl"></i> Git / GitHub</span>
+                        <span class="skill-pill"><i class="devicon-postman-plain colored text-2xl"></i> Postman</span>
                     </div>
                 </div>
 
@@ -623,8 +647,8 @@
                 <i data-lucide="briefcase" class="w-10 h-10 text-blue-400"></i> Professional Experience
             </h2>
     
-            <div class="max-w-3xl mx-auto relative border-l-2 pl-12 space-y-12"
-                 style="border-image: linear-gradient(to bottom, #38bdf8, #1e293b) 1;">
+            <div class="max-w-4xl mx-auto relative border-l-2 pl-12 space-y-12"
+                style="border-image: linear-gradient(to bottom, #38bdf8, #1e293b) 1;">
                 
                 <div class="timeline-item group ml-2 pl-6 border-l-4 border-transparent hover:border-sky-400 transition">
                     <p class="text-base italic text-slate-400 mb-1">Feb 2025 – Present</p>
@@ -644,7 +668,7 @@
                     <p class="text-xl text-slate-400 mb-3">
                         <span class="text-sky-400">Rooman Technologies Pvt. Ltd.</span>
                     </p>
-                    <ul style="list-style-type:disc; margin-left:1.5rem; line-height:1.9; font-size:0.98rem; color:#cbd5e1; text-align:justify;">
+                    <ul style="list-style-type:disc; margin-left:1.5rem; line-height:1.9; font-size:1.05rem; color:#cbd5e1; text-align:justify;">
                         <li style="margin-bottom:0.7rem; text-justify:inter-word;">
                             Designed, containerized, and deployed cloud-native applications using <strong>Docker</strong> and <strong>Kubernetes</strong> on <strong>IBM Cloud</strong>, improving deployment scalability and consistency.
                         </li>
@@ -674,7 +698,7 @@
                     <p class="text-xl text-slate-400 mb-3">
                         <span class="text-sky-400">Indian Tech Keys</span>
                     </p>
-                    <ul style="list-style-type:disc; margin-left:1.5rem; line-height:1.9; font-size:0.98rem; color:#cbd5e1; text-align:justify;">
+                    <ul style="list-style-type:disc; margin-left:1.5rem; line-height:1.9; font-size:1.05rem; color:#cbd5e1; text-align:justify;">
                         <li style="margin-bottom:0.7rem; text-justify:inter-word;">
                             Developed responsive UI components for a web application using <strong>React.js.</strong>
                         </li>
@@ -687,21 +711,22 @@
             </div>
         </section>
 
+        <!-- UPDATED: PROJECTS SECTION with Devicon Logos -->
         <section id="projects" class="py-16 scroll-animation">
             <h2 class="section-title flex items-center justify-center gap-3 text-5xl font-extrabold text-slate-100 mb-12">
                 <i data-lucide="lightbulb" class="w-10 h-10 text-yellow-400"></i> Projects
             </h2>
         
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                 
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-yellow-400/30 h-full">
                         <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Chatbot Application</strong></h3>
-                        <p class="text-slate-400 text-xl mb-4 flex-grow leading-relaxed">Engineered an interactive chatbot with a modern UI, robust Python (Flask) backend, and Oracle SQL integration.</p>
+                        <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Engineered an interactive chatbot with a modern UI, robust Python (Flask) backend, and Oracle SQL integration.</p>
                         <div class="mt-auto flex flex-wrap gap-2 pt-4">
-                            <span class="skill-tag !text-sm !px-6 !py-1">Python</span>
-                            <span class="skill-tag !text-sm !px-6 !py-1">Flask</span>
-                            <span class="skill-tag !text-sm !px-6 !py-1">Oracle SQL</span>
+                            <span class="skill-tag"><i class="devicon-python-plain colored text-lg"></i> Python</span>
+                            <span class="skill-tag"><i class="devicon-flask-original colored text-lg"></i> Flask</span>
+                            <span class="skill-tag"><i class="devicon-oracle-original colored text-lg"></i> Oracle SQL</span>
                         </div>
                     </div>
                 </div>
@@ -709,11 +734,11 @@
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-cyan-400/30 h-full">
                         <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Password Manager</strong></h3>
-                        <p class="text-slate-400 text-xl mb-4 flex-grow leading-relaxed">Developed a secure, responsive password manager with user authentication, encryption, and credential management.</p>
+                        <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Developed a secure, responsive password manager with user authentication, encryption, and credential management.</p>
                         <div class="mt-auto flex flex-wrap gap-2 pt-4">
-                            <span class="skill-tag !text-sm !px-4 !py-1">React.js</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">Node.js</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">MongoDB</span>
+                            <span class="skill-tag"><i class="devicon-react-original colored text-lg"></i> React.js</span>
+                            <span class="skill-tag"><i class="devicon-nodejs-plain text-lg"></i> Node.js</span>
+                            <span class="skill-tag"><i class="devicon-mongodb-plain colored text-lg"></i> MongoDB</span>
                         </div>
                     </div>
                 </div>
@@ -721,11 +746,11 @@
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-pink-400/30 h-full">
                         <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Sentiment Analysis App</strong></h3>
-                        <p class="text-slate-400 text-xl mb-4 flex-grow leading-relaxed">Built a Python & Streamlit app for Twitter sentiment analysis using Logistic Regression with interactive visualizations.</p>
+                        <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Built a Python & Streamlit app for Twitter sentiment analysis using Logistic Regression with interactive visualizations.</p>
                         <div class="mt-auto flex flex-wrap gap-2 pt-4">
-                            <span class="skill-tag !text-sm !px-4 !py-1">Python</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">Streamlit</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">Scikit-learn</span>
+                            <span class="skill-tag"><i class="devicon-python-plain colored text-lg"></i> Python</span>
+                            <span class="skill-tag"><i data-lucide="bar-chart-2" class="w-4 h-4 text-sky-300"></i> Streamlit</span>
+                            <span class="skill-tag"><i class="devicon-scikitlearn-plain colored text-lg"></i> Scikit-learn</span>
                         </div>
                     </div>
                 </div>
@@ -733,11 +758,11 @@
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-green-400/30 h-full">
                         <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Speed Detection System</strong></h3>
-                        <p class="text-slate-400 text-xl mb-4 flex-grow leading-relaxed">Used ML to measure vehicle speeds in real-time by analyzing video footage and extracting relevant features.</p>
+                        <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Used ML to measure vehicle speeds in real-time by analyzing video footage and extracting relevant features.</p>
                         <div class="mt-auto flex flex-wrap gap-2 pt-4">
-                            <span class="skill-tag !text-sm !px-4 !py-1">Python</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">OpenCV</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">ML</span>
+                            <span class="skill-tag"><i class="devicon-python-plain colored text-lg"></i> Python</span>
+                            <span class="skill-tag"><i class="devicon-opencv-plain colored text-lg"></i> OpenCV</span>
+                            <span class="skill-tag"><i data-lucide="brain" class="w-4 h-4 text-sky-300"></i> ML</span>
                         </div>
                     </div>
                 </div>
@@ -745,11 +770,11 @@
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-blue-400/30 h-full">
                         <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Air Canvas</strong></h3>
-                        <p class="text-slate-400 text-xl mb-4 flex-grow leading-relaxed">Application enabling users to draw in mid-air using hand gestures tracked by computer vision and interpreted by ML.</p>
+                        <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Application enabling users to draw in mid-air using hand gestures tracked by computer vision and interpreted by ML.</p>
                         <div class="mt-auto flex flex-wrap gap-2 pt-4">
-                            <span class="skill-tag !text-sm !px-4 !py-1">Python</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">OpenCV</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">MediaPipe</span>
+                            <span class="skill-tag"><i class="devicon-python-plain colored text-lg"></i> Python</span>
+                            <span class="skill-tag"><i class="devicon-opencv-plain colored text-lg"></i> OpenCV</span>
+                            <span class="skill-tag"><i data-lucide="video" class="w-4 h-4 text-sky-300"></i> MediaPipe</span>
                         </div>
                     </div>
                 </div>
@@ -757,11 +782,11 @@
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-red-400/30 h-full">
                         <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Train Management System</strong></h3>
-                        <p class="text-slate-400 text-xl mb-4 flex-grow leading-relaxed">A robust web application using Oracle SQL and Python to streamline ticket booking and reservation management.</p>
+                        <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">A robust web application using Oracle SQL and Python to streamline ticket booking and reservation management.</p>
                         <div class="mt-auto flex flex-wrap gap-2 pt-4">
-                            <span class="skill-tag !text-sm !px-4 !py-1">Python</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">Flask</span>
-                            <span class="skill-tag !text-sm !px-4 !py-1">Oracle SQL</span>
+                            <span class="skill-tag"><i class="devicon-python-plain colored text-lg"></i> Python</span>
+                            <span class="skill-tag"><i class="devicon-flask-original colored text-lg"></i> Flask</span>
+                            <span class="skill-tag"><i class="devicon-oracle-original colored text-lg"></i> Oracle SQL</span>
                         </div>
                     </div>
                 </div>
@@ -803,7 +828,7 @@
     </main>
 
     <footer class="border-t border-slate-700 bg-slate-950">
-        <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="container mx-auto max-w-[1400px] px-6 py-6 flex flex-col md:flex-row justify-between items-center">
         
             <div class="flex items-center gap-4 text-slate-400 mb-4 md:mb-0">
                 <span>&copy; 2024 Punith H Singh. All Rights Reserved.</span>
@@ -816,7 +841,7 @@
                 </button>
             </div>
     
-            <div class="flex space-x-6">
+            <div class="flex xl:hidden space-x-6">
                 <a href="https://www.linkedin.com/in/punith-h-singh" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-blue-400 transition-colors duration-300" aria-label="LinkedIn">
                     <i data-lucide="linkedin" class="w-6 h-6"></i>
                 </a>
@@ -860,10 +885,6 @@
 
     <!-- Back To Top Button -->
     <a href="#home" class="back-to-top" id="back-to-top"><i data-lucide="arrow-up" class="w-6 h-6"></i></a>
-
-    <script>
-        lucide.createIcons();
-    </script>
 
     <script>
         // Main Interaction Script
@@ -1053,8 +1074,6 @@
                     backToTopBtn.classList.remove('active');
                 }
             });
-
-            setTimeout(() => lucide.createIcons(), 100);
 
         })(); 
     </script>
