@@ -374,7 +374,6 @@
             transform: translateY(0);
         }
         
-        /* UPDATED: Styles for new skill layout with icons */
         .skill-pill {
             @apply flex items-center justify-center gap-2;
             padding: 0.65rem 1.5rem;
@@ -432,6 +431,25 @@
         
         .tag-rose { box-shadow: 0 0 10px rgba(251,113,133,0.2); }
         .tag-rose:hover { border-color: #fb7185; color: #fff; box-shadow: 0 0 20px rgba(251,113,133,0.5); transform: translateY(-2px); }
+
+        /* Glow Nudge Animation for Latest Work Badge */
+        @keyframes glow-nudge {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+                border-color: rgba(71, 85, 105, 0.8); /* slate-600 */
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+                border-color: rgba(255, 255, 255, 0.9);
+                color: #ffffff;
+            }
+        }
+
+        .badge-latest-work {
+            animation: glow-nudge 2s ease-in-out infinite;
+        }
 
         .nav-link.nav-active {
             color: var(--accent-color);
@@ -783,10 +801,40 @@
         
             </div>
         </section>
-       
+
+        <!-- ADDED Projects Section Wrapper -->
+        <section id="projects" class="py-16 scroll-animation">
+            <h2 class="section-title flex items-center justify-center gap-3 text-5xl font-extrabold text-slate-100 mb-12">
+                <i data-lucide="code" class="w-10 h-10 text-cyan-400"></i> Featured Projects
+            </h2>
+
+            <!-- Grid Wrapper -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                
+                <!-- NEW: OmniConverter Project Card -->
+                <div class="project-card-3d">
+                    <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-slate-400/20 h-full">
+                        <div class="flex justify-between items-start mb-2 gap-4">
+                            <h3 class="text-2xl font-bold text-white">OmniConverter</h3>
+                            <span class="badge-latest-work mt-1 text-[11px] font-medium px-3 py-1 rounded-full border border-slate-600 text-slate-300 bg-slate-800/50 whitespace-nowrap shadow-sm">
+                                Latest Work
+                            </span>
+                        </div>
+                        <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">
+                            A sleek client-side toolkit for compressing, converting, resizing images and generating PDFs, Base64, QR codes, and more — all processed locally in the browser.
+                        </p>
+                        <div class="mt-auto flex flex-wrap items-center gap-3 pt-5 border-t border-slate-700/50">
+                            <!-- Styled tags to match the screenshot provided -->
+                            <span class="px-4 py-1.5 rounded-full border border-slate-600/80 text-sm font-medium text-slate-300 bg-[#161b22] shadow-inner cursor-default">JavaScript</span>
+                            <span class="px-4 py-1.5 rounded-full border border-slate-600/80 text-sm font-medium text-slate-300 bg-[#161b22] shadow-inner cursor-default">HTML</span>
+                            <span class="px-4 py-1.5 rounded-full border border-slate-600/80 text-sm font-medium text-slate-300 bg-[#161b22] shadow-inner cursor-default">CSS</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-cyan-400/20 h-full">
-                        <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Chatbot Application</strong></h3>
+                        <h3 class="text-2xl font-bold text-white mb-2">Chatbot Application</h3>
                         <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Engineered an interactive chatbot with a modern UI, robust Python (Flask) backend, and Oracle SQL integration.</p>
                         <div class="mt-auto flex flex-wrap items-center gap-3 pt-5 border-t border-slate-700/50">
                             <span class="glow-tag tag-cyan">Python</span>
@@ -798,7 +846,7 @@
         
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-indigo-400/20 h-full">
-                        <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Password Manager</strong></h3>
+                        <h3 class="text-2xl font-bold text-white mb-2">Password Manager</h3>
                         <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Developed a secure, responsive password manager with user authentication, encryption, and credential management.</p>
                         <div class="mt-auto flex flex-wrap items-center gap-3 pt-5 border-t border-slate-700/50">
                             <span class="glow-tag tag-indigo">React.js</span>
@@ -810,7 +858,7 @@
         
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-pink-400/20 h-full">
-                        <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Sentiment Analysis App</strong></h3>
+                        <h3 class="text-2xl font-bold text-white mb-2">Sentiment Analysis App</h3>
                         <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Built a Python & Streamlit app for Twitter sentiment analysis using Logistic Regression with interactive visualizations.</p>
                         <div class="mt-auto flex flex-wrap items-center gap-3 pt-5 border-t border-slate-700/50">
                             <span class="glow-tag tag-pink">Python</span>
@@ -822,7 +870,7 @@
         
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-emerald-400/20 h-full">
-                        <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Speed Detection System</strong></h3>
+                        <h3 class="text-2xl font-bold text-white mb-2">Speed Detection System</h3>
                         <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Used ML to measure vehicle speeds in real-time by analyzing video footage and extracting relevant features.</p>
                         <div class="mt-auto flex flex-wrap items-center gap-3 pt-5 border-t border-slate-700/50">
                             <span class="glow-tag tag-emerald">Python</span>
@@ -834,7 +882,7 @@
         
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-sky-400/20 h-full">
-                        <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Air Canvas</strong></h3>
+                        <h3 class="text-2xl font-bold text-white mb-2">Air Canvas</h3>
                         <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">Application enabling users to draw in mid-air using hand gestures tracked by computer vision and interpreted by ML.</p>
                         <div class="mt-auto flex flex-wrap items-center gap-3 pt-5 border-t border-slate-700/50">
                             <span class="glow-tag tag-sky">Python</span>
@@ -846,7 +894,7 @@
         
                 <div class="project-card-3d">
                     <div class="glass-card flex flex-col p-6 rounded-2xl shadow-lg hover:shadow-rose-400/20 h-full">
-                        <h3 class="text-2xl font-semibold text-slate-100 mb-2"><strong>Train Management System</strong></h3>
+                        <h3 class="text-2xl font-bold text-white mb-2">Train Management System</h3>
                         <p class="text-slate-400 text-lg mb-4 flex-grow leading-relaxed">A robust web application using Oracle SQL and Python to streamline ticket booking and reservation management.</p>
                         <div class="mt-auto flex flex-wrap items-center gap-3 pt-5 border-t border-slate-700/50">
                             <span class="glow-tag tag-rose">Python</span>
@@ -855,11 +903,10 @@
                         </div>
                     </div>
                 </div>
-        
-            </div>
+            </div> <!-- End Grid Wrapper -->
         </section>
 
-        <!-- NEW: Hidden Knowledge Base Section (Admin Only) -->
+        <!-- Hidden Knowledge Base Section (Admin Only) -->
         <section id="learnings-section" class="py-16 hidden">
             <div class="flex justify-between items-center mb-12">
                 <h2 class="section-title !mb-0 flex items-center gap-3 text-3xl md:text-5xl font-extrabold text-slate-100">
