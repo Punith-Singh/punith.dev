@@ -984,6 +984,18 @@
         (function() {
             lucide.createIcons();
 
+            // --- Dynamic Email Links ---
+            // Use native mail app on mobile, and Gmail web compose on desktop
+            const emailLinks = document.querySelectorAll('a[href^="https://mail.google.com/mail/"]');
+            const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+            
+            if (isMobileDevice) {
+                emailLinks.forEach(link => {
+                    link.href = "mailto:punithsingh18@gmail.com";
+                    link.removeAttribute("target"); // prevents opening a blank tab on mobile
+                });
+            }
+
             // --- Experience Accordion Toggle ---
             const expToggleBtns = document.querySelectorAll('.exp-toggle-btn');
             expToggleBtns.forEach(btn => {
