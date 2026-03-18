@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Punith H Singh - Portfolio</title>
+    <title>Portfolio</title>
     
     <!-- Custom Favicon (Gradient 'P') -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' stop-color='%230ea5e9'/><stop offset='100%' stop-color='%236366f1'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='url(%23g)'/><text x='50%' y='54%' font-family='sans-serif' font-weight='bold' font-size='65' fill='white' dominant-baseline='middle' text-anchor='middle'>P</text></svg>">
@@ -364,22 +364,22 @@
             color: #fff;
         }
 
-        /* Project Glowing Pill Tags */
+        /* Project Glowing Pill Tags with Rotating Border */
         .glow-tag {
+            position: relative;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             padding: 0.25rem 0.75rem;
             border-radius: 9999px; 
-            border: 1px solid #374151;
             font-size: 12px;
             font-weight: 500;
             letter-spacing: 0.025em;
-            transition: all 0.3s ease;
             cursor: default;
             white-space: nowrap;
-            background-color: #21262d;
             color: #e2e8f0;
+            overflow: hidden;
+            z-index: 1;
         }
         @media (min-width: 768px) {
             .glow-tag {
@@ -388,29 +388,38 @@
             }
         }
 
-        .tag-red { box-shadow: 0 0 10px rgba(239,68,68,0.2); }
-        .tag-red:hover { border-color: #ef4444; color: #fff; box-shadow: 0 0 20px rgba(239,68,68,0.5); transform: translateY(-2px); }
-        
-        .tag-neon { box-shadow: 0 0 10px rgba(34,211,238,0.2); }
-        .tag-neon:hover { border-color: #22d3ee; color: #fff; box-shadow: 0 0 20px rgba(34,211,238,0.5); transform: translateY(-2px); }
-                
-        .tag-cyan { box-shadow: 0 0 10px rgba(34,211,238,0.2); }
-        .tag-cyan:hover { border-color: #22d3ee; color: #fff; box-shadow: 0 0 20px rgba(34,211,238,0.5); transform: translateY(-2px); }
-        
-        .tag-indigo { box-shadow: 0 0 10px rgba(129,140,248,0.2); }
-        .tag-indigo:hover { border-color: #818cf8; color: #fff; box-shadow: 0 0 20px rgba(129,140,248,0.5); transform: translateY(-2px); }
-        
-        .tag-pink { box-shadow: 0 0 10px rgba(244,114,182,0.2); }
-        .tag-pink:hover { border-color: #f472b6; color: #fff; box-shadow: 0 0 20px rgba(244,114,182,0.5); transform: translateY(-2px); }
-        
-        .tag-emerald { box-shadow: 0 0 10px rgba(52,211,153,0.2); }
-        .tag-emerald:hover { border-color: #34d399; color: #fff; box-shadow: 0 0 20px rgba(52,211,153,0.5); transform: translateY(-2px); }
-        
-        .tag-sky { box-shadow: 0 0 10px rgba(56,189,248,0.2); }
-        .tag-sky:hover { border-color: #38bdf8; color: #fff; box-shadow: 0 0 20px rgba(56,189,248,0.5); transform: translateY(-2px); }
-        
-        .tag-rose { box-shadow: 0 0 10px rgba(251,113,133,0.2); }
-        .tag-rose:hover { border-color: #fb7185; color: #fff; box-shadow: 0 0 20px rgba(251,113,133,0.5); transform: translateY(-2px); }
+        .glow-tag::before {
+            content: '';
+            position: absolute;
+            top: -100%; left: -100%;
+            width: 300%; height: 300%;
+            background: conic-gradient(from 0deg, transparent 70%, var(--tag-color) 85%, var(--tag-color-light) 100%);
+            animation: spin-gradient 3s linear infinite;
+            z-index: -2;
+        }
+
+        .glow-tag::after {
+            content: '';
+            position: absolute;
+            inset: 1px; /* Thickness of the animated border */
+            background-color: #21262d;
+            border-radius: 9999px;
+            z-index: -1;
+        }
+
+        @keyframes spin-gradient {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .tag-red { --tag-color: rgba(239,68,68,0.4); --tag-color-light: #ef4444; box-shadow: 0 0 10px rgba(239,68,68,0.2); }
+        .tag-neon { --tag-color: rgba(34,211,238,0.4); --tag-color-light: #22d3ee; box-shadow: 0 0 10px rgba(34,211,238,0.2); }
+        .tag-cyan { --tag-color: rgba(34,211,238,0.4); --tag-color-light: #22d3ee; box-shadow: 0 0 10px rgba(34,211,238,0.2); }
+        .tag-indigo { --tag-color: rgba(129,140,248,0.4); --tag-color-light: #818cf8; box-shadow: 0 0 10px rgba(129,140,248,0.2); }
+        .tag-pink { --tag-color: rgba(244,114,182,0.4); --tag-color-light: #f472b6; box-shadow: 0 0 10px rgba(244,114,182,0.2); }
+        .tag-emerald { --tag-color: rgba(52,211,153,0.4); --tag-color-light: #34d399; box-shadow: 0 0 10px rgba(52,211,153,0.2); }
+        .tag-sky { --tag-color: rgba(56,189,248,0.4); --tag-color-light: #38bdf8; box-shadow: 0 0 10px rgba(56,189,248,0.2); }
+        .tag-rose { --tag-color: rgba(251,113,133,0.4); --tag-color-light: #fb7185; box-shadow: 0 0 10px rgba(251,113,133,0.2); }
 
         @keyframes glow-nudge {
             0%, 100% {
