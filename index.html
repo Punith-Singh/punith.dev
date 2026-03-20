@@ -209,6 +209,27 @@
             --shadow-color: rgba(88, 166, 255, 0.2);
         }
 
+        /* --- CUSTOM SCROLLBAR --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30363d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-color);
+        }
+        /* Firefox Scrollbar */
+        html {
+            scrollbar-width: thin;
+            scrollbar-color: #30363d var(--bg-color);
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
